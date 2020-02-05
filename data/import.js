@@ -9,12 +9,16 @@ const db = require("../server/knex.js");
       const latitude = location.Site.Latitude;
       const longitude = location.Site.Longitude;
       const name = location.Site.SiteName;
+      const number = location.Site.SiteNumber;
+      const prefName = location.Site.SitePreferredName;
 
       const result = await db("locations").insert({
         id,
         latitude,
         longitude,
         name,
+        number,
+        prefName,
       });
       console.log(result);
     }

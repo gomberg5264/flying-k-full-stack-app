@@ -7,6 +7,10 @@ exports.up = function(knex) {
     table.float("longitude");
 
     table.text("name").notNullable();
+
+    table.float("number").notNullable();
+
+    table.text("prefName");
   });
 };
 
