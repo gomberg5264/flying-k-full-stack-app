@@ -31,6 +31,7 @@ app.get("/api/locations", async (req, res) => {
 app.get("/api/locations/:stateName", async (req, res) => {
   try {
     const stateName = req.params.stateName;
+    const highway = req.params.highway;
     const locations = await db
       .select()
       .table("locations")
@@ -58,10 +59,11 @@ app.get("/api/locations/:stateName/:cityName", async (req, res) => {
   }
 });
 
-app.get("/api/locations/:stateName/:highway", async (req, res) => {
+app.get("/api/locations/:stateName/highway/:highway", async (req, res) => {
   try {
     const stateName = req.params.stateName;
     const highway = req.params.highway;
+    console.log(req.params);
     const locations = await db
       .select()
       .table("locations")

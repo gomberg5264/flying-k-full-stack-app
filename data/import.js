@@ -15,6 +15,7 @@ exports.seed = async function() {
       const cityName = location.Addresses[0].City;
       const stateName = location.Addresses[0].State;
       const highway = location.Site.Highway;
+      const restaurant = location.Site.Concepts[0].Concept.Name;
 
       const result = await db("locations").insert({
         id,
@@ -26,6 +27,7 @@ exports.seed = async function() {
         cityName,
         stateName,
         highway,
+        restaurant,
       });
       console.log(result);
     }
