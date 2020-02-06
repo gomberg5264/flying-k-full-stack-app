@@ -4,7 +4,7 @@ const db = require("../server/knex.js");
 exports.seed = async function() {
   try {
     //create locations data and put them into table
-    const locations = JSON.parse(fs.readFileSync("../data/locations.json"));
+    const locations = JSON.parse(fs.readFileSync("./data/locations.json"));
     for (const location of locations) {
       const id = location.Site.SiteId;
       const latitude = location.Site.Latitude;
