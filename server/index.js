@@ -6,7 +6,6 @@ const PORT = process.env.PORT || 8080;
 (async () => {
   try {
     console.log("Running migrations");
-    console.log(db.connection().client.config);
     await db.migrate.latest().then(function() {
       return db.seed.run("./data");
     });
