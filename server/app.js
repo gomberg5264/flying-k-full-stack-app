@@ -18,7 +18,6 @@ app.use(express.static(path.resolve(__dirname, "..", "dist")));
 app.get("/api/locations", async (req, res) => {
   try {
     const locations = await db.select().table("locations");
-    console.log(locations);
     res.json(locations);
     res.sendStatus(200);
   } catch (err) {
@@ -58,7 +57,7 @@ app.get("/api/locations/:stateName/:cityName", async (req, res) => {
   }
 });
 
-app.get("/api/locations/:stateName/:highway", async (req, res) => {
+app.get("/api/locations/:stateName/h/:highway", async (req, res) => {
   try {
     const stateName = req.params.stateName;
     const highway = req.params.highway;
