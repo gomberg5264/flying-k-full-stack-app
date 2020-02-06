@@ -37,3 +37,9 @@ export default {
   },
 };
 </script>
+
+<style>
+.map-container {
+  margin-top: 15px;
+}
+</style>

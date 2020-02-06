@@ -1,32 +1,46 @@
 <template>
   <div id="app">
-    <HelloWorld msg="Go rub Potato's belly for good luck!" />
-    <div>
-      <Map />
-    </div>
+    <Navbar />
+    <b-container>
+      <template v-if="currentView">
+        <Map />
+        <Filters />
+      </template>
+      <template v-else>
+        <Map />
+        <SearchResults />
+      </template>
+    </b-container>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
 import Map from "./components/Map";
-
+import Navbar from "./components/Navbar.vue";
+import Filters from "./components/Filters";
+import SearchResults from "./components/SearchResults";
 export default {
   name: "app",
   components: {
-    HelloWorld,
     Map,
+    Navbar,
+    Filters,
+    SearchResults,
   },
+  data: () => ({
+    title: "Flying K Finder",
+    currentView: true,
+  }),
 };
 </script>
 
 <style>
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  /* font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 60px; */
 }
 </style>
