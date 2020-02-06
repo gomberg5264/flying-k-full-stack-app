@@ -1,12 +1,12 @@
 const app = require("./app");
 const db = require("./knex");
 
-const PORT = process.env.PORT || 9000;
+const PORT = process.env.PORT || 8080;
 
 (async () => {
   try {
     console.log("Running migrations");
-    console.log(db.migrate.latest);
+    console.log(db.connection().client.config);
     await db.migrate.latest();
 
     console.log("Starting express");
