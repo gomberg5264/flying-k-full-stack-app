@@ -1,30 +1,37 @@
 <template>
   <div id="app">
-    <b-container fluid>
-      <b-row>
-        <b-col>1 of 3</b-col>
-        <b-col>2 of 3</b-col>
-        <b-col>3 of 3</b-col>
-      </b-row>
+    <Navbar />
+    <b-container>
+      <template v-if="currentView">
+        <Map />
+        <Filters />
+      </template>
+      <template v-else>
+        <Map />
+        <SearchResults />
+      </template>
     </b-container>
-    <!-- <img src="./assets/logo.png" /> -->
-    <!-- <HelloWorld msg="Go rub Potato's belly for good luck!" /> -->
-    <div>
-      <Map />
-    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
 import Map from "./components/Map";
+import Navbar from "./components/Navbar.vue";
+import Filters from "./components/Filters";
+import SearchResults from "./components/SearchResults";
 
 export default {
   name: "app",
   components: {
-    HelloWorld,
     Map,
+    Navbar,
+    Filters,
+    SearchResults,
   },
+  data: () => ({
+    title: "Flying K Finder",
+    currentView: true,
+  }),
 };
 </script>
 
