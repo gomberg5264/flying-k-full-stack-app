@@ -18,11 +18,11 @@
   </b-row>
 </template>
 
-<script>
+<script type="text/javascript">
 import { gmapApi } from "vue2-google-maps";
 
 export default {
-  mounted() {
+  mounted: function() {
     this.getLocations();
   },
   computed: {
