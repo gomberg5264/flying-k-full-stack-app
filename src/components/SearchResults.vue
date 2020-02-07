@@ -4,24 +4,33 @@
       <h2>20 Locations Found</h2>
       <b-badge variant="success">Wendy's</b-badge>
       <b-badge variant="success">Arby's</b-badge>
-      <span class="text-right">search again</span>
+      <b-button class="searchButton" @click="backToSearchView"
+        >search again</b-button
+      >
     </b-col>
-    <ResultItem />
-    <ResultItem />
-    <ResultItem />
-    <ResultItem />
+    <resultItem
+      v-for="selectedLocation in selectedLocations"
+      :key="selectedLocation.id"
+      :selectedLocation="selectedLocation"
+    />
   </b-row>
 </template>
 
 <script>
 import ResultItem from "./SearchResults-Item";
+
 export default {
   name: "SearchResults",
   components: {
-    ResultItem,
+    resultItem: ResultItem,
   },
-  props: {},
-  data() {},
+  props: ["backToSearchView"],
+  data: () => ({}),
+  computed: {
+    selectedLocations() {
+      return this.$store.state.selectedLocations;
+    },
+  },
 };
 </script>
 

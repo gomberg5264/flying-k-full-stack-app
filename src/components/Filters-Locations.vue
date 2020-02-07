@@ -8,7 +8,6 @@
           :options="states"
           v-on="filterState(selectedState)"
         ></b-form-select>
-        <div>{{ selectedState }}</div>
       </b-col>
 
       <b-col>

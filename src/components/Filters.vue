@@ -6,7 +6,13 @@
     <FiltersAmenities />
     <FiltersRestaurants />
     <b-col cols="12">
-      <b-button block variant="success" class="search-button">Search</b-button>
+      <b-button
+        block
+        variant="success"
+        class="search-button"
+        @click="changeSearchView"
+        >Search</b-button
+      >
     </b-col>
   </b-row>
 </template>
@@ -27,8 +33,7 @@ export default {
     FiltersAmenities,
     FiltersRestaurants,
   },
-  props: {},
-  data() {},
+  props: ["changeSearchView"],
 };
 </script>
 
