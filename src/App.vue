@@ -19,7 +19,6 @@ import Map from "./components/Map";
 import Navbar from "./components/Navbar.vue";
 import Filters from "./components/Filters";
 import SearchResults from "./components/SearchResults";
-
 export default {
   name: "app",
   components: {

@@ -1,4 +1,4 @@
-exports.up = function(knex) {
+exports.up = function(knex, Promise) {
   return knex.schema.createTable("locations", (table) => {
     table.increments().index();
 
@@ -19,9 +19,15 @@ exports.up = function(knex) {
     table.text("highway");
 
     table.text("restaurant");
+
+    table.text("type");
+
+    table.specificType("amenities", "text ARRAY");
+
+    table.specificType("truckServices", "text ARRAY");
   });
 };
 
-exports.down = function(knex) {
+exports.down = function(knex, Promise) {
   return knex.schema.dropTable("locations");
 };
