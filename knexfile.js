@@ -1,10 +1,9 @@
-// Update with your config settings.
-const db = require("./server/knex");
-
 module.exports = {
   development: {
     client: "pg",
-    connection: db.connection().client.config.connection,
+    connection:
+      process.env.DATABASE_URL ||
+      `postgres://${process.env.USER}@127.0.0.1:5432/truck_stops`,
     pool: {
       min: 2,
       max: 10,
@@ -20,11 +19,9 @@ module.exports = {
 
   staging: {
     client: "pg",
-    connection: {
-      database: "truck_stops",
-      user: process.env.DATABASE_USER,
-      password: process.env.DATABASE_PASSWORD,
-    },
+    connection:
+      process.env.DATABASE_URL ||
+      `postgres://${process.env.USER}@127.0.0.1:5432/truck_stops`,
     pool: {
       min: 2,
       max: 10,
@@ -37,11 +34,9 @@ module.exports = {
 
   production: {
     client: "pg",
-    connection: {
-      database: "truck_stops",
-      user: process.env.DATABASE_USER,
-      password: process.env.DATABASE_PASSWORD,
-    },
+    connection:
+      process.env.DATABASE_URL ||
+      `postgres://${process.env.USER}@127.0.0.1:5432/truck_stops`,
     pool: {
       min: 2,
       max: 10,
