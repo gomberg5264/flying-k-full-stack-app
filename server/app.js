@@ -223,4 +223,3 @@ app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "..", "dist", "index.html"));
 });
 module.exports = app;
-// {"id":368,"latitude":32.84415,"longitude":-86.591965,"name":"Site 368","number":368,"prefName":"Clanton","cityName":"Clanton","stateName":"AL","highway":"I-65"}
