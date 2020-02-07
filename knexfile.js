@@ -22,8 +22,8 @@ module.exports = {
     client: "pg",
     connection: {
       database: "truck_stops",
-      user: "username",
-      password: "password",
+      user: process.env.DATABASE_USER,
+      password: process.env.DATABASE_PASSWORD,
     },
     pool: {
       min: 2,
@@ -39,8 +39,8 @@ module.exports = {
     client: "pg",
     connection: {
       database: "truck_stops",
-      user: "username",
-      password: "password",
+      user: process.env.DATABASE_USER,
+      password: process.env.DATABASE_PASSWORD,
     },
     pool: {
       min: 2,
