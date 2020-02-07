@@ -14,17 +14,36 @@ export default new Vuex.Store({
     },
   },
   actions: {
-    async loadMarkers({ commit }) {
+    async loadMarkers({ commit }, state) {
       try {
         const { data: locations } = await axios.get("/api/locations"); // ES6 destructuring & aliasing
-        const markers = locations.map((location) => ({
-          position: {
-            lat: location.latitude,
-            lng: location.longitude,
-          },
-          key: location.name,
-          defaultAnimation: 2,
-        }));
+        let markers;
+        if (!state) {
+          markers = locations.map((location) => ({
+            position: {
+              lat: location.latitude,
+              lng: location.longitude,
+            },
+            key: location.name,
+            defaultAnimation: 2,
+          }));
+        } else {
+          console.log(locations);
+          console.log(
+            locations.filter((location) => location.stateName === state)
+          );
+          markers = locations.filter(
+            (location) => location.stateName === state
+          );
+          markers = markers.map((location) => ({
+            position: {
+              lat: location.latitude,
+              lng: location.longitude,
+            },
+            key: location.name,
+            defaultAnimation: 2,
+          }));
+        }
         commit("setLocations", markers);
       } catch (err) {
         console.error(err);

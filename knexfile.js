@@ -21,9 +21,9 @@ module.exports = {
   staging: {
     client: "pg",
     connection: {
-      database: "my_db",
-      user: "username",
-      password: "password",
+      database: "truck_stops",
+      user: process.env.DATABASE_USER,
+      password: process.env.DATABASE_PASSWORD,
     },
     pool: {
       min: 2,
@@ -38,9 +38,9 @@ module.exports = {
   production: {
     client: "pg",
     connection: {
-      database: "my_db",
-      user: "username",
-      password: "password",
+      database: "truck_stops",
+      user: process.env.DATABASE_USER,
+      password: process.env.DATABASE_PASSWORD,
     },
     pool: {
       min: 2,

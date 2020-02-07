@@ -6,7 +6,9 @@
         <b-form-select
           v-model="selectedState"
           :options="states"
+          v-on="filterState(selectedState)"
         ></b-form-select>
+        <div>{{ selectedState }}</div>
       </b-col>
 
       <b-col>
@@ -24,6 +26,8 @@
 </template>
 
 <script>
+const states = require("../utils/States");
+
 export default {
   name: "FiltersLocations",
   props: {},
@@ -32,12 +36,7 @@ export default {
       selectedState: null,
       selectedCity: null,
       selectedHighway: null,
-      states: [
-        // States (locations) array goes here
-        { value: null, text: "State" },
-        { value: "Alabama", text: "Alabama" },
-        { value: "Alaska", text: "Alaska" },
-      ],
+      states,
       cities: [
         // Cities (locations) array goes here
         { value: null, text: "City" },
@@ -51,6 +50,11 @@ export default {
         { value: "Route 2", text: "Route 2" },
       ],
     };
+  },
+  methods: {
+    filterState(selectedState) {
+      this.$store.dispatch("loadMarkers", selectedState);
+    },
   },
 };
 </script>
