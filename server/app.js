@@ -75,8 +75,8 @@ app.get("/api/locations/:stateName/highway/:highway", async (req, res) => {
     res.sendStatus(500);
   }
 });
-//gets array of facilities at single truck stop
-// app.get("/api/", async (req,res) => {
+//filter
+// app.get("/api/filter/:restaurants/:services", async (req,res) => {
 
 // });
 
