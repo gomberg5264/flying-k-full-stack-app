@@ -21,7 +21,7 @@ module.exports = {
   staging: {
     client: "pg",
     connection: {
-      database: "my_db",
+      database: "trucks_stops",
       user: "username",
       password: "password",
     },
@@ -38,7 +38,7 @@ module.exports = {
   production: {
     client: "pg",
     connection: {
-      database: "my_db",
+      database: "trucks_stops",
       user: "username",
       password: "password",
     },
