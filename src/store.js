@@ -7,10 +7,15 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     locations: [],
+    selectedLocations: [],
+    currentView: "",
   },
   mutations: {
     setLocations(state, locations) {
       state.locations = locations;
+    },
+    setSelectedLocations(state, selectedLocations) {
+      state.selectedLocations = selectedLocations;
     },
   },
   actions: {
@@ -19,6 +24,7 @@ export default new Vuex.Store({
         const { data: locations } = await axios.get("/api/locations"); // ES6 destructuring & aliasing
         let markers;
         if (!state) {
+          console.log(locations);
           markers = locations.map((location) => ({
             position: {
               lat: location.latitude,
@@ -28,13 +34,10 @@ export default new Vuex.Store({
             defaultAnimation: 2,
           }));
         } else {
-          console.log(locations);
-          console.log(
-            locations.filter((location) => location.stateName === state)
-          );
           markers = locations.filter(
             (location) => location.stateName === state
           );
+          commit("setSelectedLocations", markers);
           markers = markers.map((location) => ({
             position: {
               lat: location.latitude,

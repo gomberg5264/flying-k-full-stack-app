@@ -17,6 +17,8 @@ exports.up = function(knex) {
     table.text("stateName");
 
     table.text("highway");
+
+    table.text("restaurant");
   });
 };
 
