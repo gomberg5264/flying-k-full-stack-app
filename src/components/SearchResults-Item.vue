@@ -10,8 +10,8 @@
   </b-col> -->
   <b-col sm class="result-item">
     <b-row class="wrapper">
-      <h2 class="">
-        Exit 43 | I-75
+      <h2 class="location-header">
+        {{ selectedLocation.prefName + " | " + selectedLocation.highway }}
       </h2>
       <hr />
     </b-row>
@@ -39,8 +39,8 @@
 export default {
   name: "ResultItem",
   components: {},
-  props: {},
-  data() {},
+  data: () => ({}),
+  props: ["selectedLocation"],
 };
 </script>
 
@@ -51,6 +51,11 @@ export default {
   border: 1px solid lightgray;
   margin: 10px;
   padding: 10px;
+}
+
+.location-header {
+  font-size: 20px;
+  font-style: bold;
 }
 
 .wrapper {
