@@ -19,6 +19,12 @@ exports.up = function(knex) {
     table.text("highway");
 
     table.text("restaurant");
+
+    table.text("type");
+
+    table.specificType("amenities", "text ARRAY");
+
+    table.specificType("truckServices", "text ARRAY");
   });
 };
 
