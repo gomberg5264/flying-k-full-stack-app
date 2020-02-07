@@ -36,7 +36,9 @@ export default {
     getLocations() {
       this.$store.dispatch("loadMarkers");
     },
-    markerRightClicked() {},
+    markerRightClicked() {
+      console.log("marker right clicked");
+    },
   },
 };
 </script>

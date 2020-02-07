@@ -2,13 +2,14 @@
   <div id="app">
     <Navbar />
     <b-container>
-      <template v-if="currentView">
+      <template v-if="currentView === 'home'">
         <Map />
-        <Filters />
+        <Filters :changeSearchView="changeSearchView" />
       </template>
-      <template v-else>
+
+      <template v-else-if="currentView === 'results'">
         <Map />
-        <SearchResults />
+        <SearchResults :backToSearchView="backToSearchView" />
       </template>
     </b-container>
   </div>
@@ -29,8 +30,17 @@ export default {
   },
   data: () => ({
     title: "Flying K Finder",
-    currentView: true,
+    currentView: "home",
   }),
+  methods: {
+    changeSearchView() {
+      this.currentView = "results";
+    },
+    backToSearchView() {
+      this.currentView = "home";
+      console.log(this.currentView);
+    },
+  },
 };
 </script>
 
