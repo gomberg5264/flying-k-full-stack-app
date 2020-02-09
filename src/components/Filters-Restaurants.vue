@@ -19,8 +19,18 @@ export default {
     return {
       selectedRestaurants: [], // Must be an array reference!
       optionsRestaurants: [
-        { text: "Arbys's", value: "arbys" },
-        { text: "Wendy's", value: "wendys" },
+        { text: "Arby's", value: "Arby's" },
+        { text: "Wendy's", value: "Wendy's" },
+        { text: "Subway", value: "Subway" },
+        { text: "Godfather's Pizza", value: "Godfather's Pizza" },
+        { text: "IHOP Express", value: "IHOP Express" },
+        { text: "Taco Bell", value: "Taco Bell" },
+        { text: "Carl's Jr.", value: "Denny's" },
+        { text: "Del Taco", value: "Del Taco" },
+        { text: "Chester's", value: "Chester's" },
+        { text: "Hardee's", value: "Hardee's" },
+        { text: "Carl's Jr.", value: "Carl's Jr." },
+        { text: "McDonald's", value: "McDonald's" },
       ],
     };
   },

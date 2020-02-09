@@ -21,6 +21,9 @@ export default {
       optionsAmenities: [
         { text: "ATM", value: "atm" },
         { text: "WiFi", value: "wifi" },
+        { text: "RV Dump", value: "RV Dump" },
+        { text: "Parking Spaces", value: "Parking Spaces" },
+        { text: "Private Showers", value: "Private Showers" },
       ],
     };
   },
